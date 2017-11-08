@@ -1,0 +1,2 @@
+xrange   range
+itertools.izip  zip
