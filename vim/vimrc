@@ -1,0 +1,150 @@
+set nocompatible
+
+let Plugin_List = [
+            \ 'altercation/vim-colors-solarized',
+            \ 'ap/vim-css-color',
+            \ 'clvv/a.vim',
+            \ 'davidhalter/jedi-vim',
+            \ 'fatih/vim-go',
+            \ 'fholgado/minibufexpl.vim',
+            \ 'guns/vim-clojure-static',
+            \ 'honza/vim-snippets',
+            \ 'jistr/vim-nerdtree-tabs',
+            \ 'kien/ctrlp.vim',
+            \ 'Lokaltog/vim-easymotion',
+            \ 'mbbill/undotree',
+            \ 'nathanaelkane/vim-indent-guides',
+            \ 'rking/ag.vim',
+            \ 'scrooloose/nerdcommenter',
+            \ 'scrooloose/nerdtree',
+            \ 'scrooloose/syntastic',
+            \ 'shougo/neocomplcache.vim',
+            \ 'Shougo/neosnippet',
+            \ 'Shougo/neosnippet-snippets',
+            \ 'shougo/vimproc.vim',
+            \ 'shougo/vimshell.vim',
+            \ 'sirver/ultisnips',
+            \ 'sjl/gundo.vim',
+            \ 'terryma/vim-multiple-cursors',
+            \ 'tomasr/molokai',
+            \ 'tpope/vim-fugitive',
+            \ 'Valloric/YouCompleteMe',
+            \ 'vim-airline/vim-airline',
+            \ 'vim-airline/vim-airline-themes',
+            \ 'vim-scripts/tagbar',
+            \ 'unblevable/quick-scope',
+            \ 'w0ng/vim-hybrid',
+            \ 'VundleVim/Vundle.vim']
+
+" =========Bundle Managed By Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+
+for repo in Plugin_List
+    Plugin repo
+endfor
+
+"Plugin 'tpope/vim-dispatch'
+"Plugin 'tpope/vim-projectionist'
+call vundle#end()
+filetype plugin indent on
+
+
+
+
+syntax on
+" size of a hard tabstop
+set tabstop=4
+" size of an "indent"
+set shiftwidth=4
+" a combination of spaces and tabs are used to simulate tab stops at a width
+" other than the (hard)tabstop
+set softtabstop=4
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+set number
+
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set incsearch		" do incremental searching
+
+set background=dark
+colorscheme molokai
+
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+    set mouse=a
+endif
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+    syntax on
+    set hlsearch
+endif
+
+""" color settings
+set t_Co=256
+
+" =========Syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_cpp_include_dirs = ['/usr/include/']
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_auto_refresh_includes = 1
+let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
+let g:Syntastic_cpp_checkers = ['gcc']
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501,E225'
+"set error or warning signs
+let g:syntastic_error_symbol = 'X'
+let g:syntastic_warning_symbol = '!'
+"whether to show balloons
+let g:syntastic_enable_balloons = 1
+map <silent> <leader>e :Errors<CR>
+map <leader>s :SyntasticToggleMode<CR>
+"let g:syntastic_auto_loc_list=1
+
+" =========YCM
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_confirm_extra_conf = 0
+"Make Syntastic works together with YCM
+let g:ycm_show_diagnostics_ui = 0
+
+" =========Airline
+set laststatus=2
+let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+
+" =========Indent Guides
+set ts=4 sw=4 et
+hi IndentGuidesEven ctermbg=1
+hi IndentGuidesOdd  ctermbg=2
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
+" =========gVIM
+set guifont=Iosevka\ 12
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+
+" =========Gundo
+nnoremap <C-u> :GundoToggle<cr>
+
+" =========Guide Line
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
+
+" =========Quick Scope
+let g:qs_highlight_on_keys = ['f', 'F']
