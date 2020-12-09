@@ -1,0 +1,46 @@
+!!$HOME/.Xdefaults
+
+Xft.dpi:200
+
+URxvt.preeditType:Root
+URxvt.inputMethod:ibus
+URxvt.depth:32
+
+URxvt.title:Terminal
+URxvt.background:[70]#000000
+URxvt.foreground:#00FF00
+URxvt.colorBD:Gray95
+URxvt.colorUL:Green
+URxvt.color1:Red2
+URxvt.color4:RoyalBlue
+URxvt.color5:Magenta2
+URxvt.color8:Gray50
+URxvt.color10:Green2
+URxvt.color12:DodgerBlue
+URxvt.color14:Cyan2
+URxvt.color15:Gray95
+URxvt.urlLauncher:chromium-browser
+URxvt.matcher.button:1
+Urxvt.perl-ext-common:matcher
+URxvt.scrollBar:True
+URxvt.scrollBar_right:True
+URxvt.scrollBar_floating:False
+URxvt.scrollstyle:plain
+URxvt.mouseWheelScrollPage:True
+URxvt.scrollTtyOutput:False
+URxvt.scrollWithBuffer:True
+URxvt.scrollTtyKeypress:True
+URxvt.cursorBlink:True
+URxvt.saveLines:3000
+URxvt.borderLess:False
+
+URxvt.font:\
+        xft:Iosevka Term Slab:size=12:style=Regular:antialias=true,\
+        xft:Source Code Pro:size=12:style=Regular:antialias=true:hinting=true\
+	xft:Noto Serif CJK SC:size=12:style=Regular:antialias=False:hinting=False,\
+	xft:Noto Serif CJK TC:size=12:style=Regular:antialias=False:hinting=False,\
+URxvt.boldFont:\
+        xft:Iosevka Term Slab:size=12:style=Bold:antialias=true,\
+        xft:Source Code Pro:size=12:style=Bold:antialias=true:hinting=true\
+	xft:Noto Serif CJK SC:size=12:style=Bold:antialias=False:hinting=False,\
+	xft:Noto Serif CJK TC:size=12:style=Bold:antialias=False:hinting=False,\
